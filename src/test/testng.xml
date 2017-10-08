@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite verbose="0" name="Firefox" parallel="false">
-    <test name="Google">
+    <test name="Ottry">
         <classes>
-            <class name="tests.google.GoogleTS"><!--<methods>
+            <class name="tests.ottry.SmokeTS"><!--<methods>
                     <include name="loginPositiveTestCase"/>
                     <include name="logoutFromWebuiApplication"/>
                 </methods>-->
