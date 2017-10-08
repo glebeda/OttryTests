@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+<!--    <bean id="asset2" class="testDataConstructors.AssetData">
+        <property name="name" value="NewOne"/>
+        <property name="assetTypeId" value="1"/>
+        <property name="nodeId" value="1"/>
+        <property name="siteId" value="3"/>
+        <property name="posX" value="4"/>
+        <property name="posY" value="5"/>
+        <property name="serviceLayerId" value="4"/>
+        <property name="domainDataKey" value="calculationNumberOfAlarms"/>
+        <property name="domainData" ref="domainDataContainer"/> &lt;!&ndash;not a data, its just container for getting domains&ndash;&gt;
+    </bean>
+
+    <bean id="genAdm" class="testDataConstructors.AssetData">
+        <property name="name" value="GEN-ADM-1"/>
+        <property name="assetTypeId" value="15"/>
+        <property name="nodeId" value="13"/>
+        <property name="siteId" value="3"/>
+        <property name="posX" value="500"/>
+        <property name="posY" value="525"/>
+        <property name="serviceLayerId" value="1"/>
+        <property name="domainDataKey" value="genAdm"/>
+        <property name="domainData" ref="domainDataContainer"/> &lt;!&ndash;not a data, its just container for getting domains&ndash;&gt;
+    </bean>
+
+    <bean id="genAdm_Additional" class="testDataConstructors.AssetData">
+        <property name="name" value="GEN-ADM-1"/>
+        <property name="assetTypeId" value="15"/>
+        <property name="nodeId" value="91"/>
+        <property name="siteId" value="3"/>
+        <property name="posX" value="500"/>
+        <property name="posY" value="525"/>
+        <property name="serviceLayerId" value="1"/>
+        <property name="domainDataKey" value="genAdm"/>
+        <property name="domainData" ref="domainDataContainer"/> &lt;!&ndash;not a data, its just container for getting domains&ndash;&gt;
+    </bean>
+
+    <bean id="munAdm" class="testDataConstructors.AssetData">
+        <property name="name" value="MUN-ADM-1"/>
+        <property name="assetTypeId" value="28"/>
+        <property name="nodeId" value=""/>
+        <property name="siteId" value="26"/>
+        <property name="posX" value="650"/>
+        <property name="posY" value="525"/>
+        <property name="serviceLayerId" value="1"/>
+        <property name="domainDataKey" value="munAdm"/>
+        <property name="domainData" ref="domainDataContainer"/> &lt;!&ndash;not a data, its just container for getting domains&ndash;&gt;
+    </bean>
+
+    <bean id="munAdm_Additional" class="testDataConstructors.AssetData">
+        <property name="name" value="MUN-ADM-1"/>
+        <property name="assetTypeId" value="28"/>
+        <property name="nodeId" value="93"/>
+        <property name="siteId" value="26"/>
+        <property name="posX" value="650"/>
+        <property name="posY" value="525"/>
+        <property name="serviceLayerId" value="1"/>
+        <property name="domainDataKey" value="munAdm"/>
+        <property name="domainData" ref="domainDataContainer"/> &lt;!&ndash;not a data, its just container for getting domains&ndash;&gt;
+    </bean>
+
+    <bean id="zurAdm" class="testDataConstructors.AssetData">
+        <property name="name" value="ZUR-ADM-1"/>
+        <property name="assetTypeId" value="55"/>
+        <property name="siteId" value="25"/>
+        <property name="nodeId" value=""/>
+        <property name="posX" value="600"/>
+        <property name="posY" value="525"/>
+        <property name="serviceLayerId" value="1"/>
+        <property name="domainDataKey" value="zurAdm"/>
+        <property name="domainData" ref="domainDataContainer"/> &lt;!&ndash;not a data, its just container for getting domains&ndash;&gt;
+    </bean>
+
+    <bean id="zurAdm_Additional" class="testDataConstructors.AssetData">
+        <property name="name" value="ZUR-ADM-1"/>
+        <property name="assetTypeId" value="55"/>
+        <property name="siteId" value="25"/>
+        <property name="nodeId" value="92"/>
+        <property name="posX" value="600"/>
+        <property name="posY" value="525"/>
+        <property name="serviceLayerId" value="1"/>
+        <property name="domainDataKey" value="zurAdm"/>
+        <property name="domainData" ref="domainDataContainer"/> &lt;!&ndash;not a data, its just container for getting domains&ndash;&gt;
+    </bean>
+
+    <bean id="asset_ETSL_3871" class="testDataConstructors.AssetData">
+        <property name="name" value="STR-ADM-1"/>
+        <property name="assetStatus" value="Unknown"/>
+        <property name="description" value="STR-ADM-1"/>
+        <property name="assetTypeId" value="1"/>
+        <property name="assetTypeName" value="MSE5020"/>
+        <property name="serviceLayerName" value="SDH Transmission"/>
+        <property name="nodeId" value="1"/>
+        <property name="siteId" value="3"/>
+        <property name="siteName" value="STRAS"/>
+        <property name="gps" value="48.5691135, 7.762094"/>
+        <property name="posX" value="4"/>
+        <property name="posY" value="5"/>
+        <property name="slot" value="0"/>
+        <property name="port" value="0"/>
+        <property name="subnetworks" value="West"/>
+        <property name="domainDataKey" value="calculationNumberOfAlarms"/>
+        <property name="domainData" ref="domainDataContainer"/>
+    </bean>
+    <bean id="asset_ETSL_3855" class="testDataConstructors.AssetData">
+        <property name="name" value="AMS-ADM-1"/>
+        <property name="assetTypeName" value="MSE5020"/>
+        <property name="siteName" value="AMSDM"/>
+        <property name="assetStatus" value="Not Supervised"/>
+        <property name="description" value="AMS-ADM-1"/>
+        <property name="ip" value=""/>
+        <property name="gps" value="52.3747158, 4.8986142"/>
+        <property name="serviceLayerName" value="SDH Transmission"/>
+        <property name="subnetworks" value="West"/>
+        <property name="slot" value="0"/>
+        <property name="port" value="0"/>
+        <property name="domainDataKey" value="calculationNumberOfAlarms"/>
+        <property name="domainData" ref="domainDataContainer"/>
+    </bean>
+    <bean id="asset_ETSL_3857" class="testDataConstructors.AssetData">
+        <property name="name" value="AMS-ADM-1"/>
+        <property name="domainDataKey" value="calculationNumberOfAlarms"/>
+        <property name="domainData" ref="domainDataContainer"/>
+    </bean>
+    <bean id="asset_ETSL_3859" class="testDataConstructors.AssetData">
+        <property name="name" value="1st_test_asset_ETSL-3859112"/>
+        <property name="assetTypeId" value="1"/>
+        <property name="nodeId" value="1"/>
+        <property name="siteId" value="3"/>
+        <property name="serviceLayerId" value="1"/>
+        <property name="posX" value="4"/>
+        <property name="posY" value="5"/>
+        <property name="domainDataKey" value="calculationNumberOfAlarms"/>
+        <property name="domainData" ref="domainDataContainer"/>
+    </bean>
+    <bean id="asset_ETSL_3858" class="testDataConstructors.AssetData">
+        <property name="name" value="AMS-GWR"/>
+        <property name="assetTypeName" value="Cisco Switch"/>
+        <property name="siteName" value="AMSDM"/>
+        <property name="assetStatus" value="Not Supervised"/>
+        <property name="domainDataKey" value="calculationNumberOfAlarms"/>
+        <property name="domainData" ref="domainDataContainer"/>
+    </bean>
+    <bean id="asset_ETSL_3858_critical" class="testDataConstructors.AssetData">
+        <property name="name" value="AMS-GWR"/>
+        <property name="assetTypeName" value="Cisco Switch"/>
+        <property name="siteName" value="AMSDM"/>
+        <property name="assetStatus" value="Critical"/>
+        <property name="domainDataKey" value="calculationNumberOfAlarms"/>
+        <property name="domainData" ref="domainDataContainer"/>
+    </bean>
+    <bean id="asset_ETSL_3858_desc" class="testDataConstructors.AssetData">
+        <property name="name" value="AMS-GWR"/>
+        <property name="assetTypeName" value="MSE5020"/>
+        <property name="assetTypeId" value="1"/>
+        <property name="siteName" value="AMSDM"/>
+        <property name="assetStatus" value="Critical"/>
+        <property name="domainDataKey" value="calculationNumberOfAlarms"/>
+        <property name="domainData" ref="domainDataContainer"/>
+    </bean>
+    <bean id="asset_ETSL_3858_normal" class="testDataConstructors.AssetData">
+        <property name="name" value="AMS-GWR"/>
+        <property name="assetTypeName" value="Cisco Switch"/>
+        <property name="siteName" value="AMSDM"/>
+        <property name="assetStatus" value="Normal"/>
+        <property name="description" value="AMS-GWR"/>
+        <property name="gps" value="52.3747158, 4.8986142"/>
+        <property name="serviceLayerName" value="DATA"/>
+        <property name="subnetworks" value="North"/>
+        <property name="ip" value=""/>
+        <property name="slot" value="0"/>
+        <property name="port" value="0"/>
+        <property name="domainDataKey" value="calculationNumberOfAlarms"/>
+        <property name="domainData" ref="domainDataContainer"/>
+    </bean>
+    <bean id="asset_ETSL_4132" class="testDataConstructors.AssetData">
+        <property name="name" value="PARI-ADM-1"/>
+        <property name="nodeId" value="100500"/>
+        <property name="domainDataKey" value="calculationNumberOfAlarms"/>
+        <property name="domainData" ref="domainDataContainer"/>
+    </bean>
+    <bean id="asset_ETSL_4374" class="testDataConstructors.AssetData">
+        <property name="name" value="AMS-ADM-1"/>
+        <property name="domainDataKey" value="calculationNumberOfAlarms"/>
+        <property name="domainData" ref="domainDataContainer"/>
+    </bean>
+    <bean id="asset_ETSL_4375" class="testDataConstructors.AssetData">
+        <property name="name" value="AMS-ADM-1"/>
+        <property name="siteName" value="AMSDM"/>
+        <property name="domainDataKey" value="calculationNumberOfAlarms"/>
+        <property name="domainData" ref="domainDataContainer"/>
+    </bean>
+    <bean id="asset_ETSL_4383" class="testDataConstructors.AssetData">
+        <property name="name" value="AMS-ADM-1"/>
+        <property name="assetStatus" value="Unknown"/>
+        <property name="description" value="AMS-ADM-1"/>
+        <property name="assetTypeName" value="MSE5020"/>
+        <property name="serviceLayerName" value="SDH Transmission"/>
+        <property name="siteName" value="AMSDM"/>
+        <property name="gps" value="52.3747158, 4.8986142"/>
+        <property name="posX" value="650"/>
+        <property name="posY" value="150"/>
+        <property name="slot" value="0"/>
+        <property name="port" value="0"/>
+        <property name="subnetworks" value="West"/>
+        <property name="domainDataKey" value="calculationNumberOfAlarms"/>
+        <property name="domainData" ref="domainDataContainer"/>
+    </bean>
+    <bean id="asset_ETSL_4383_updated" class="testDataConstructors.AssetData">
+        <property name="name" value="AMS-ADM-1Test"/>
+        <property name="assetStatus" value="Not Supervised"/>
+        <property name="description" value="AMS-ADM-1Test"/>
+        <property name="assetTypeName" value="MSE5020"/>
+        <property name="siteName" value="ATHEN"/>
+        <property name="gps" value="37.9908372, 23.7383394"/>
+        <property name="ip" value=""/>
+        <property name="posX" value="200"/>
+        <property name="posY" value="200"/>
+        <property name="slot" value="0"/>
+        <property name="port" value="0"/>
+        <property name="subnetworks" value="West"/>
+        <property name="serviceLayerName" value="SDH Transmission"/>
+        <property name="domainDataKey" value="calculationNumberOfAlarms"/>
+        <property name="domainData" ref="domainDataContainer"/>
+    </bean>
+    <bean id="asset_ETSL_4384" class="testDataConstructors.AssetData">
+        <property name="name" value="AMS-MUX-1"/>
+        <property name="nodeId" value="100600"/>
+        <property name="nodeName" value="AMS-MUX-1Test"/>
+        <property name="domainDataKey" value="calculationNumberOfAlarms"/>
+        <property name="domainData" ref="domainDataContainer"/>
+    </bean>
+    <bean id="asset_ETSL_4384_updated" class="testDataConstructors.AssetData">
+        <property name="name" value="AMS-MUX-1"/>
+        <property name="assetStatus" value="Unknown"/>
+        <property name="description" value="AMS-MUX-1"/>
+        <property name="assetTypeName" value="DXC5000"/>
+        <property name="serviceLayerName" value="Primary Multiplex"/>
+        <property name="siteName" value="AMSDM"/>
+        <property name="gps" value="52.3747158, 4.8986142"/>
+        <property name="slot" value="0"/>
+        <property name="port" value="0"/>
+        <property name="ip" value="172.30.83.103"/>
+        <property name="subnetworks" value="East"/>
+        <property name="domainDataKey" value="calculationNumberOfAlarms"/>
+        <property name="domainData" ref="domainDataContainer"/>
+    </bean>
+    <bean id="asset_ETSL_4385" class="testDataConstructors.AssetData">
+        <property name="name" value="BAR-GWR"/>
+        <property name="domainDataKey" value="calculationNumberOfAlarms"/>
+        <property name="domainData" ref="domainDataContainer"/>
+    </bean>
+    <bean id="asset_ETSL_4385_updated" class="testDataConstructors.AssetData">
+        <property name="name" value="BAR-GWR"/>
+        <property name="assetStatus" value="Not Supervised"/>
+        <property name="description" value=""/>
+        <property name="assetTypeName" value="Cisco Switch"/>
+        <property name="serviceLayerName" value="DATA"/>
+        <property name="siteName" value="BARCE"/>
+        <property name="gps" value="41.39479, 2.1487679"/>
+        <property name="slot" value="0"/>
+        <property name="port" value="0"/>
+        <property name="ip" value=""/>
+        <property name="subnetworks" value="West"/>
+        <property name="domainDataKey" value="calculationNumberOfAlarms"/>
+        <property name="domainData" ref="domainDataContainer"/>
+    </bean>
+    <bean id="asset_ETSL_4428" class="testDataConstructors.AssetData">
+        <property name="name" value="4428_test_asset"/>
+        <property name="assetTypeId" value="1"/>
+        <property name="nodeId" value="1"/>
+        <property name="siteId" value="3"/>
+        <property name="serviceLayerId" value="1"/>
+        <property name="posX" value="4"/>
+        <property name="posY" value="5"/>
+        <property name="domainDataKey" value="calculationNumberOfAlarms"/>
+        <property name="domainData" ref="domainDataContainer"/>
+    </bean>
+    <bean id="asset_ETSL_4427" class="testDataConstructors.AssetData">
+        <property name="name" value="AMS-ADM-1"/>
+        <property name="domainDataKey" value="calculationNumberOfAlarms"/>
+        <property name="domainData" ref="domainDataContainer"/>
+    </bean>
+    <bean id="asset_ETSL_4431" class="testDataConstructors.AssetData">
+        <property name="name" value="4431_test_asset"/>
+        <property name="assetTypeId" value="1"/>
+        <property name="nodeId" value="1"/>
+        <property name="siteId" value="3"/>
+        <property name="serviceLayerId" value="1"/>
+        <property name="posX" value="4"/>
+        <property name="posY" value="5"/>
+        <property name="domainDataKey" value="calculationNumberOfAlarms"/>
+        <property name="domainData" ref="domainDataContainer"/>
+    </bean>
+    <bean id="asset_ETSL_4432" class="testDataConstructors.AssetData">
+        <property name="name" value="4432_test_asset"/>
+        <property name="assetTypeId" value="1"/>
+        <property name="nodeId" value="1"/>
+        <property name="siteId" value="3"/>
+        <property name="serviceLayerId" value="1"/>
+        <property name="posX" value="4"/>
+        <property name="posY" value="5"/>
+        <property name="domainDataKey" value="calculationNumberOfAlarms"/>
+        <property name="domainData" ref="domainDataContainer"/>
+    </bean>
+    <bean id="asset_ETSL_4433" class="testDataConstructors.AssetData">
+        <property name="name" value="4433_test_asset"/>
+        <property name="assetTypeId" value="1"/>
+        <property name="nodeId" value="1"/>
+        <property name="siteId" value="3"/>
+        <property name="serviceLayerId" value="1"/>
+        <property name="posX" value="4"/>
+        <property name="posY" value="5"/>
+        <property name="domainDataKey" value="calculationNumberOfAlarms"/>
+        <property name="domainData" ref="domainDataContainer"/>
+    </bean>
+    <bean id="asset_ETSL_4437" class="testDataConstructors.AssetData">
+        <property name="name" value="AMS-ADM-1"/>
+        <property name="domainDataKey" value="calculationNumberOfAlarms"/>
+        <property name="domainData" ref="domainDataContainer"/>
+    </bean>-->
+</beans>
