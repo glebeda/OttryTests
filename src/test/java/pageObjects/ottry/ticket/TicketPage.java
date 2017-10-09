@@ -15,6 +15,7 @@ public class TicketPage extends BaseServicePage {
     public TicketPage(WebDriver driver) {
         super(driver);
         try {
+            driver.switchTo().frame(getIframe());
             getGoBtn();
         } catch (TimeoutException e) {
             throw new IllegalStateException("Go button is not present. Considering that this is not a ticket page", e);

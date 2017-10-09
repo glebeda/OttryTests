@@ -28,6 +28,6 @@ public class ConfirmationPage extends BaseServicePage {
     }
 
     private WebElement getContinueBtn() {
-        return new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(continueBtnLocator));
+        return new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(continueBtnLocator));
     }
 }

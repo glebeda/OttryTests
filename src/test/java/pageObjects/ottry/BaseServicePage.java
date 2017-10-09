@@ -13,7 +13,7 @@ public abstract class BaseServicePage extends BasePage {
 
         //Check that we`re on the right page and it is loaded.
         try {
-            driver.switchTo().frame(getIframe());
+            //driver.switchTo().frame(getIframe());
         } catch (TimeoutException e) {
             throw new IllegalStateException("Iframe was not found", e);
         } catch (NoSuchFrameException e) {
