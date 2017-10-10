@@ -31,4 +31,8 @@ public class Utils {
         return ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
     }
 
+    public static void waitForCertainTime(int mSeconds) throws InterruptedException {
+        Thread.sleep(mSeconds);
+    }
+
 }

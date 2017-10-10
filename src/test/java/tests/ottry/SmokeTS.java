@@ -37,6 +37,6 @@ public class SmokeTS extends BaseTest {
                 goBtnClick().
                 continueBtnClick().
                 bookBtnClick();
-        Thread.sleep(10000);
+        Thread.sleep(2000);
     }
 }

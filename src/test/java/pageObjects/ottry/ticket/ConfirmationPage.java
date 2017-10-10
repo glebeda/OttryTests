@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.ottry.BaseServicePage;
 import ru.yandex.qatools.allure.annotations.Step;
+import utils.Utils;
 
 public class ConfirmationPage extends BaseServicePage {
     public ConfirmationPage(WebDriver driver) {
@@ -22,8 +23,10 @@ public class ConfirmationPage extends BaseServicePage {
     By continueBtnLocator = By.cssSelector("[class ='bo-ev-lb btn waves-effect waves-light']");
 
     @Step("Continue button click")
-    public BookingPage continueBtnClick() {
-        getContinueBtn().click();
+    public BookingPage continueBtnClick() throws InterruptedException {
+        WebElement btn = getContinueBtn();
+        Utils.waitForCertainTime(500); //TODO: Continue button is not clickable without delay
+        btn.click();
         return new BookingPage(driver);
     }
 
