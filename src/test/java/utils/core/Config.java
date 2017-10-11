@@ -10,9 +10,10 @@ package utils.core;
 public class Config {
 
     public String BaseURL;
+    public String MerchantURL;
     public String Host;
-    public String DBuser;
-    public String DBpassword;
+    public String MerchantLogin;
+    public String MerchantPassword;
 
     public String getBaseURL() {
         return BaseURL;
@@ -30,19 +31,27 @@ public class Config {
         this.Host = host;
     }
 
-    public String getDBuser() {
-        return DBuser;
+    public String getMerchantLogin() {
+        return MerchantLogin;
     }
 
-    public void setDBuser(String dbuser) {
-        this.DBuser = dbuser;
+    public void setMerchantLogin(String merchantLogin) {
+        this.MerchantLogin = merchantLogin;
     }
 
-    public String getDBpassword() {
-        return DBpassword;
+    public String getMerchantPassword() {
+        return MerchantPassword;
     }
 
-    public void setDBpassword(String dbpassword) {
-        this.DBpassword = dbpassword;
+    public void setMerchantPassword(String merchantPassword) {
+        this.MerchantPassword = merchantPassword;
+    }
+
+    public String getMerchantURL() {
+        return MerchantURL;
+    }
+
+    public void setMerchantURL(String merchantURL) {
+        MerchantURL = merchantURL;
     }
 }

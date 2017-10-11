@@ -5,17 +5,16 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.ottry.BaseServicePage;
 import ru.yandex.qatools.allure.annotations.Step;
+import testDataConstructors.BookingData;
 
 public class TicketPage extends BaseServicePage<TicketPage> {
 
     public TicketPage(WebDriver driver) {
         super(driver);
         try {
-            //driver.switchTo().frame(getIframe());
             getGoBtn();
         } catch (TimeoutException e) {
             throw new IllegalStateException("Go button is not present. Considering that this is not a ticket page", e);
@@ -23,7 +22,6 @@ public class TicketPage extends BaseServicePage<TicketPage> {
     }
 
     By goBtnLocator = By.cssSelector("[class='bo-ev-nb btn waves-effect waves-light']");
-
     By phoneFieldLocator = By.cssSelector("[id='bo-av-592e72b926b2458726557d7f']");
     By emailFieldLocator = By.cssSelector("[id='bo-ev-email']");
     By commentFieldLocator = By.cssSelector("[id='bo-ev-textarea']");
@@ -65,6 +63,18 @@ public class TicketPage extends BaseServicePage<TicketPage> {
     @Step("Enter comment")
     public TicketPage fillCommentField(String comment) {
         getCommentField().sendKeys(comment);
+        return this;
+    }
+
+    @Step("Book a ticket")
+    public TicketPage bookTicket(BookingData data) throws InterruptedException {
+        selectEndpoint(data.getEndpoint()).
+                fillPhoneField(data.getPhone()).
+                fillEmailField(data.getEmail()).
+                fillCommentField(data.getComment()).
+                goBtnClick().
+                continueBtnClick().
+                bookBtnClick();
         return this;
     }
 }
