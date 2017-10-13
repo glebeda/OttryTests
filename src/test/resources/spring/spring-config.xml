@@ -5,6 +5,6 @@
        default-lazy-init="true">
 
     <import resource="*context.xml"/>
-    <import resource="connection-config.xml"/>
+    <import resource="base-config.xml"/>
 
 </beans>

@@ -8,10 +8,10 @@
     <context:property-placeholder location="classpath*:**/test-settings.properties"/>
 
     <bean id="config" class="utils.core.Config">
-        <property name="BaseURL" value="${baseURL}"/>
-        <property name="Host" value="${host}"/>
-        <property name="DBuser" value="${dbuser}"/>
-        <property name="DBpassword" value="${dbpassword}"/>
+        <property name="baseURL" value="${baseURL}"/>
+        <property name="merchantURL" value="${merchantURL}"/>
+        <property name="merchantLogin" value="${merchantLogin}"/>
+        <property name="merchantPassword" value="${merchantPassword}"/>
     </bean>
 
 </beans>

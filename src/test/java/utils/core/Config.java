@@ -9,49 +9,40 @@ package utils.core;
  */
 public class Config {
 
-    public String BaseURL;
-    public String MerchantURL;
-    public String Host;
-    public String MerchantLogin;
-    public String MerchantPassword;
+    public String baseURL;
+    public String merchantURL;
+    public String merchantLogin;
+    public String merchantPassword;
 
     public String getBaseURL() {
-        return BaseURL;
+        return baseURL;
     }
 
     public void setBaseURL(String baseURL) {
-        this.BaseURL = baseURL;
-    }
-
-    public String getHost() {
-        return Host;
-    }
-
-    public void setHost(String host) {
-        this.Host = host;
-    }
-
-    public String getMerchantLogin() {
-        return MerchantLogin;
-    }
-
-    public void setMerchantLogin(String merchantLogin) {
-        this.MerchantLogin = merchantLogin;
-    }
-
-    public String getMerchantPassword() {
-        return MerchantPassword;
-    }
-
-    public void setMerchantPassword(String merchantPassword) {
-        this.MerchantPassword = merchantPassword;
+        this.baseURL = baseURL;
     }
 
     public String getMerchantURL() {
-        return MerchantURL;
+        return merchantURL;
     }
 
     public void setMerchantURL(String merchantURL) {
-        MerchantURL = merchantURL;
+        this.merchantURL = merchantURL;
+    }
+
+    public String getMerchantLogin() {
+        return merchantLogin;
+    }
+
+    public void setMerchantLogin(String merchantLogin) {
+        this.merchantLogin = merchantLogin;
+    }
+
+    public String getMerchantPassword() {
+        return merchantPassword;
+    }
+
+    public void setMerchantPassword(String merchantPassword) {
+        this.merchantPassword = merchantPassword;
     }
 }

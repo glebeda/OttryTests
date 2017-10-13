@@ -8,24 +8,21 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.core.BasePage;
 
-public class MerchantMainPage extends BasePage {
-    public MerchantMainPage(WebDriver driver) {
-        super(driver);
+public class MerchantBookOrderPage extends BasePage {
+
+    public MerchantBookOrderPage (WebDriver driver) {
+    super(driver);
         try {
-            getBookOrder();
+        getCreateBookOrderBtn();
         } catch (TimeoutException e) {
             throw new IllegalStateException("Book order field is not present. It is not main merchant page", e);
         }
     }
 
-    By bookOrderLocator = By.cssSelector("[href='/management/bookorder");
+    By createBookOrderLocator = By.cssSelector("[href='/management/bookorder/new");
 
-    private WebElement getBookOrder() {
-        return new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(bookOrderLocator));
+    private WebElement getCreateBookOrderBtn() {
+        return new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(createBookOrderLocator));
     }
 
-    public MerchantBookOrderPage bookOrderClick() {
-        getBookOrder().click();
-        return new MerchantBookOrderPage(driver);
-    }
 }

@@ -41,7 +41,8 @@ public class SmokeTS extends BaseTest {
                 continueBtnClick().
                 bookBtnClick();*/
         page.bookTicket(smokeBooking);
-        merchantLoginPage = new MerchantLoginPage(driver);
-        merchantLoginPage.loginToMerchant(config.MerchantLogin, config.MerchantPassword);
+        merchantLoginPage = new MerchantLoginPage(driver, config);
+        merchantLoginPage.loginToMerchant().
+                bookOrderClick();
     }
 }

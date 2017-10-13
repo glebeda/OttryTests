@@ -31,7 +31,7 @@ public abstract class BaseTest extends AbstractTestNGSpringContextTests {
     protected WebDriver driver;
 
     @Autowired
-    public Config config;
+    protected Config config;
 
     @BeforeClass
     protected void initialize() {
