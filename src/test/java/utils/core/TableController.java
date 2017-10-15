@@ -29,8 +29,8 @@ public class TableController{
         return getTableCell(table, rowIndex, columnIndex);
     }
 
-    public WebElement getTableCell(WebElement table, String rowName, int columnIndex) {
-        Integer rowIndex = getRowIndexByName(table, rowName);
+    public WebElement getTableCell(WebElement table, int rowIndex, String columnName) {
+        Integer columnIndex = getColumnIndexByName(table, columnName);
         return getTableCell(table, rowIndex, columnIndex);
     }
 
@@ -40,21 +40,12 @@ public class TableController{
         return cell;
     }
 
-    public WebElement getDetailsTableCell(WebElement table, String rowName) {
-        WebElement cell = table.findElement(By.xpath(String.format(FIRST_CELL_IN_THE_ROW_PLACEHOLDER, getRowIndexByDetailsHeader(table, rowName))));
-        return cell;
-    }
-
     public void clickOnCell(WebElement table, String rowName, String columnName) {
         getTableCell(table, rowName, columnName).click();
     }
 
     public void validateCellValue(WebElement table, String rowName, String columnName, String cellText) {
         Assert.assertEquals(cellText, getTableCell(table, rowName, columnName).getText());
-    }
-
-    public void validateDetailsCellValue(WebElement table, String rowName, String cellText) {
-        Assert.assertEquals(cellText, getDetailsTableCell(table, rowName).getText());
     }
 
     private int getColumnIndexByName(WebElement table, String columnName) {
@@ -84,31 +75,9 @@ public class TableController{
         }
         throw new NoSuchElementException("Row index not found!!!");
     }
-
-    private int getRowIndexByDetailsHeader(WebElement table, String rowName) {
-        int rowIndex = 0;
-        List<WebElement> rows = table.findElements(headerLocator);
-        for (int i = 0; i < rows.size(); i++) {
-            String rowValue = rows.get(i).getText();
-            if (rowValue.equals(rowName)) {
-                rowIndex = i+1;
-                break;
-            }
-        }
-        return rowIndex;
-    }
-
+    
     public void verifyRowValues(WebElement table, String rowName, List<String> values){
         List<WebElement> rowCells = table.findElement(By.xpath(String.format(SINGLE_ROW_PLACEHOLDER, getRowIndexByName(table, rowName)+1))).findElements(singleCell);
-
-        for (int i = 0; i <= values.size()-1; i++) {
-            Assert.assertEquals(rowCells.get(i).getText().trim(), values.get(i));
-        }
-    }
-
-    public void verifyDetailsRowValues(WebElement table, List<String> values){
-        List<WebElement> rowCells = table.findElements(uniqueCells);
-
 
         for (int i = 0; i <= values.size()-1; i++) {
             Assert.assertEquals(rowCells.get(i).getText().trim(), values.get(i));

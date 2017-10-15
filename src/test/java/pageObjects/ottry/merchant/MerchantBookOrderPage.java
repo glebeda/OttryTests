@@ -11,6 +11,8 @@ import utils.core.TableController;
 
 public class MerchantBookOrderPage extends BasePage {
 
+    public static final String EMAIL_TABLE_NAME = "Email";
+
     public MerchantBookOrderPage (WebDriver driver) {
     super(driver);
         try {
@@ -27,10 +29,14 @@ public class MerchantBookOrderPage extends BasePage {
         return new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(createBookOrderLocator));
     }
 
-    public boolean verifyBookOrderPresent() {
+    public boolean isFirstRowContainsBookOrder(String email) {
         TableController tableController = new TableController();
-        //WebElement emailCell = tableController.getTableCell(getBookOrderTable(), bookOrderData().getEmail(), EMAIL_TABLE_NAME);
-        tableController.getTableCell(getBookOrderTable(), bookOrderData().getEmail(), 1); //need to do the same with rowIndex instead
+        WebElement cell = tableController.getTableCell(getBookOrderTable(), 1, EMAIL_TABLE_NAME);
+        if (cell.getText().equals(email)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     private WebElement getBookOrderTable() {

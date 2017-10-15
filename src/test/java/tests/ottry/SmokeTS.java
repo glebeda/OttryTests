@@ -3,6 +3,7 @@ package tests.ottry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import pageObjects.ottry.merchant.MerchantBookOrderPage;
 import pageObjects.ottry.merchant.MerchantLoginPage;
 import pageObjects.ottry.ticket.TicketPage;
 import ru.yandex.qatools.allure.annotations.Features;
@@ -42,7 +43,8 @@ public class SmokeTS extends BaseTest {
                 bookBtnClick();*/
         page.bookTicket(smokeBooking);
         merchantLoginPage = new MerchantLoginPage(driver, config);
-        merchantLoginPage.loginToMerchant().
+        MerchantBookOrderPage bookOrderPage = merchantLoginPage.loginToMerchant().
                 bookOrderClick();
+        assert bookOrderPage.isFirstRowContainsBookOrder(smokeBooking.getEmail()) : "Book order is not present in the first row. Email for booking = " + smokeBooking.getEmail();
     }
 }
