@@ -11,4 +11,11 @@
         <property name="comment" value="smoke booking test"/>
         <property name="status" value="Complete"/>
     </bean>
+    <bean id="pendingBooking" class="testDataConstructors.BookingData">
+        <property name="endpoint" value="Фан зона"/>
+        <property name="phone" value="+380677654322"/>
+        <property name="email" value="pending@ukr.net"/>
+        <property name="comment" value="pending booking test"/>
+        <property name="status" value="Pending"/>
+    </bean>
 </beans>

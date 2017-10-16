@@ -24,6 +24,9 @@ public class SmokeTS extends BaseTest {
     @Autowired
     private BookingData smokeBooking;
 
+    @Autowired
+    private BookingData pendingBooking;
+
     @BeforeMethod
     public void setUp() {
         page = new TicketPage(driver);
@@ -34,18 +37,30 @@ public class SmokeTS extends BaseTest {
     @Stories("ID-12")
     @Test
     public void ticketBooking() throws InterruptedException {
-        /*page.selectEndpoint(smokeBooking.getEndpoint()).
-                fillPhoneField(smokeBooking.getPhone()).
-                fillEmailField(smokeBooking.getEmail()).
-                fillCommentField(smokeBooking.getComment()).
-                goBtnClick().
-                continueBtnClick().
-                bookBtnClick();*/
         page.bookTicket(smokeBooking);
+        MerchantPageVerification(pendingBooking);
+    }
+
+    @TestCaseId("ID-2")
+    @Title("Pending ticket booking")
+    @Stories("ID-12")
+    @Test
+    public void pendingTicketBooking() throws InterruptedException {
+        page.selectEndpoint(pendingBooking.getEndpoint()).
+                fillPhoneField(pendingBooking.getPhone()).
+                fillEmailField(pendingBooking.getEmail()).
+                fillCommentField(pendingBooking.getComment()).
+                goBtnClick().
+                continueBtnClick();
+        MerchantPageVerification(pendingBooking);
+    }
+
+    private void MerchantPageVerification(BookingData booking) {
         merchantLoginPage = new MerchantLoginPage(driver, config);
         MerchantBookOrderPage bookOrderPage = merchantLoginPage.loginToMerchant().
                 bookOrderClick();
-        assert bookOrderPage.getFirstRowEmail().equalsIgnoreCase(smokeBooking.getEmail()) : "Book order is not present in the first row. Email for booking = " + smokeBooking.getEmail();
-        assert bookOrderPage.getFirstRowStatus().equalsIgnoreCase(smokeBooking.getStatus()) : "Book order status is wrong. Expected: " + smokeBooking.getStatus();
+        assert bookOrderPage.getFirstRowEmail().equalsIgnoreCase(booking.getEmail()) : "Book order is not present in the first row. Email for booking = " + booking.getEmail();
+        assert bookOrderPage.getFirstRowStatus().equalsIgnoreCase(booking.getStatus()) : "Book order status is wrong. Expected: " + booking.getStatus();
     }
+
 }
