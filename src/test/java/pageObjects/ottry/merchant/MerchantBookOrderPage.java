@@ -11,8 +11,6 @@ import utils.core.TableController;
 
 public class MerchantBookOrderPage extends BasePage {
 
-    public static final String EMAIL_TABLE_NAME = "Email";
-
     public MerchantBookOrderPage (WebDriver driver) {
     super(driver);
         try {
@@ -29,18 +27,44 @@ public class MerchantBookOrderPage extends BasePage {
         return new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(createBookOrderLocator));
     }
 
-    public boolean isFirstRowContainsBookOrder(String email) {
+    public String getFirstRowEmail() {
         TableController tableController = new TableController();
-        WebElement cell = tableController.getTableCell(getBookOrderTable(), 1, EMAIL_TABLE_NAME);
-        if (cell.getText().equals(email)) {
-            return true;
-        } else {
-            return false;
-        }
+        return tableController.getTableCell(getBookOrderTable(), 1, ColumnName.EMAIL.toString()).getText();
+    }
+
+    public String getFirstRowStatus() {
+        TableController tableController = new TableController();
+        return tableController.getTableCell(getBookOrderTable(), 1, ColumnName.STATUS.toString()).getText();
     }
 
     private WebElement getBookOrderTable() {
         return driver.findElement(bookOrderTableLocator);
+    }
+
+    private enum ColumnName {
+        ID("ID"),
+        EMAIL("Email"),
+        COMMENTS("Comments"),
+        TYPE("Type"),
+        ORDER_REFERENCE("Order Reference"),
+        LOCALE("Locale"),
+        STATUS("Status"),
+        START("Start"),
+        END("End"),
+        TICKET_STATUS("Ticket status"),
+        CREATED("Created"),
+        BUY_PRICE("Buy price");
+
+        private final String text;
+
+        ColumnName(final String text) {
+            this.text = text;
+        }
+
+        @Override
+        public String toString() {
+            return text;
+        }
     }
 
 }

@@ -7,6 +7,7 @@ public class BookingData {
     private String phone;
     private String email;
     private String comment;
+    private String status;
 
     public String getEndpoint() {
         return endpoint;
@@ -38,5 +39,13 @@ public class BookingData {
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

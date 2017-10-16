@@ -9,5 +9,6 @@
         <property name="phone" value="0676665544"/>
         <property name="email" value="selenium@gmailly.com"/>
         <property name="comment" value="smoke booking test"/>
+        <property name="status" value="Complete"/>
     </bean>
 </beans>

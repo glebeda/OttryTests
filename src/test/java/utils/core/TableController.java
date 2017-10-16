@@ -75,7 +75,7 @@ public class TableController{
         }
         throw new NoSuchElementException("Row index not found!!!");
     }
-    
+
     public void verifyRowValues(WebElement table, String rowName, List<String> values){
         List<WebElement> rowCells = table.findElement(By.xpath(String.format(SINGLE_ROW_PLACEHOLDER, getRowIndexByName(table, rowName)+1))).findElements(singleCell);
 

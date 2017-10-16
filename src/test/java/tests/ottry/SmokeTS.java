@@ -45,6 +45,7 @@ public class SmokeTS extends BaseTest {
         merchantLoginPage = new MerchantLoginPage(driver, config);
         MerchantBookOrderPage bookOrderPage = merchantLoginPage.loginToMerchant().
                 bookOrderClick();
-        assert bookOrderPage.isFirstRowContainsBookOrder(smokeBooking.getEmail()) : "Book order is not present in the first row. Email for booking = " + smokeBooking.getEmail();
+        assert bookOrderPage.getFirstRowEmail().equalsIgnoreCase(smokeBooking.getEmail()) : "Book order is not present in the first row. Email for booking = " + smokeBooking.getEmail();
+        assert bookOrderPage.getFirstRowStatus().equalsIgnoreCase(smokeBooking.getStatus()) : "Book order status is wrong. Expected: " + smokeBooking.getStatus();
     }
 }
