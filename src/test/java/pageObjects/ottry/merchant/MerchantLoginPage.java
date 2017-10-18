@@ -27,7 +27,7 @@ public class MerchantLoginPage extends BasePage {
         try {
             getLoginField();
         } catch (TimeoutException e) {
-            throw new IllegalStateException("Login field is not present after navigate attempt. It is not login page", e);
+            throw new IllegalStateException("Login field is not present after navigation attempt. It is not login page", e);
         }
     }
 

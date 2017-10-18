@@ -14,22 +14,12 @@ public class BookingPage extends BaseServicePage {
     public BookingPage(WebDriver driver) {
         super(driver);
         try {
-            getBookBtn();
+            getGoBtn();
         } catch (TimeoutException e) {
             throw new IllegalStateException("Book button is not present. Considering that this is not a booking page", e);
         }
     }
 
-    By bookBtnLocator = By.cssSelector("[class ='bo-ev-sb btn waves-effect waves-light']");
-
-    @Step("Book button click")
-    public BookingPage bookBtnClick() {
-        getBookBtn().click();
-        return this;
-    }
-
-    private WebElement getBookBtn() {
-        return new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(bookBtnLocator));
-    }
+    By bookBtnLocator = By.cssSelector("[class='bo-ev-sb btn waves-effect waves-light']");
 
 }

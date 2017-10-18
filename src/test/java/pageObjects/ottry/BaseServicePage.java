@@ -4,6 +4,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pageObjects.ottry.ticket.BookingPage;
 import ru.yandex.qatools.allure.annotations.Step;
 import utils.core.BasePage;
 
@@ -24,9 +25,20 @@ public abstract class BaseServicePage<T extends BaseServicePage> extends BasePag
 
     By iframeLocator = By.cssSelector("[src*='booking.ottry.com']");
     By endpointSelectorLocator = By.cssSelector("[id='bo-ev-endpoint']");
+    By goBtnLocator = By.cssSelector("[class='bo-ev-sb btn waves-effect waves-light']");
 
     public WebElement getIframe() {
         return new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(iframeLocator));
+    }
+
+    public WebElement getGoBtn() {
+        return new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(goBtnLocator));
+    }
+
+    @Step("Go button click")
+    public T goBtnClick() {
+        getGoBtn().click();
+        return (T)this;
     }
 
     public WebElement getEndpointSelector() {
