@@ -1,4 +1,4 @@
-package tests.ottry;
+package tests.ottry.ticket;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.annotations.BeforeMethod;
@@ -16,7 +16,7 @@ import utils.core.BaseTest;
 @Features("ottry ticket booking")
 @Title("Ticket smoke test suite")
 
-public class SmokeTS extends BaseTest {
+public class TicketSmokeTS extends BaseTest {
     private TicketStartPage page;
     private MerchantLoginPage merchantLoginPage;
 

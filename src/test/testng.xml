@@ -3,7 +3,7 @@
 <suite verbose="0" name="Firefox" parallel="false">
     <test name="Ottry">
         <classes>
-            <class name="tests.ottry.SmokeTS"><!--<methods>
+            <class name="tests.ottry.ticket.TicketSmokeTS"><!--<methods>
                     <include name="loginPositiveTestCase"/>
                     <include name="logoutFromWebuiApplication"/>
                 </methods>-->
