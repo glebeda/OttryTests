@@ -11,6 +11,7 @@ public class Config {
 
     public String baseURL;
     public String merchantURL;
+    public String cafeURL;
     public String merchantLogin;
     public String merchantPassword;
 
@@ -44,5 +45,13 @@ public class Config {
 
     public void setMerchantPassword(String merchantPassword) {
         this.merchantPassword = merchantPassword;
+    }
+
+    public String getCafeURL() {
+        return cafeURL;
+    }
+
+    public void setCafeURL(String cafeURL) {
+        this.cafeURL = cafeURL;
     }
 }

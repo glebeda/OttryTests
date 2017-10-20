@@ -4,15 +4,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.ottry.BaseServicePage;
+import pageObjects.ottry.ServiceStart;
 import ru.yandex.qatools.allure.annotations.Step;
 import testDataConstructors.BookingData;
 
-public class TicketPage extends BaseServicePage<TicketPage> {
+public class TicketStartPage extends BaseServicePage<TicketStartPage> implements ServiceStart {
 
-    public TicketPage(WebDriver driver) {
+    public TicketStartPage(WebDriver driver) {
         super(driver);
         try {
             getGoBtn();
@@ -22,19 +21,14 @@ public class TicketPage extends BaseServicePage<TicketPage> {
     }
 
     By phoneFieldLocator = By.cssSelector("[id='bo-av-592e72b926b2458726557d7f']");
-    By emailFieldLocator = By.cssSelector("[id='bo-ev-email']");
-    By commentFieldLocator = By.cssSelector("[id='bo-ev-textarea']");
 
     private WebElement getPhoneField() {
         return driver.findElement(phoneFieldLocator);
     }
 
-    private WebElement getEmailField() {
-        return driver.findElement(emailFieldLocator);
-    }
+    @Override
+    public void navigateToPage(String URL) {
 
-    private WebElement getCommentField() {
-        return driver.findElement(commentFieldLocator);
     }
 
     @Step("Click on Go button")
@@ -44,25 +38,13 @@ public class TicketPage extends BaseServicePage<TicketPage> {
     }
 
     @Step("Enter phone number")
-    public TicketPage fillPhoneField(String phone) {
+    public TicketStartPage fillPhoneField(String phone) {
         getPhoneField().sendKeys(phone);
         return this;
     }
 
-    @Step("Enter email")
-    public TicketPage fillEmailField(String email) {
-        getEmailField().sendKeys(email);
-        return this;
-    }
-
-    @Step("Enter comment")
-    public TicketPage fillCommentField(String comment) {
-        getCommentField().sendKeys(comment);
-        return this;
-    }
-
     @Step("Book a ticket")
-    public TicketPage bookTicket(BookingData data) throws InterruptedException {
+    public TicketStartPage bookTicket(BookingData data) throws InterruptedException {
         selectEndpoint(data.getEndpoint()).
                 fillPhoneField(data.getPhone()).
                 fillEmailField(data.getEmail()).

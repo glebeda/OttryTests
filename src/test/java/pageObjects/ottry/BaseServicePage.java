@@ -5,6 +5,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.ottry.ticket.BookingPage;
+import pageObjects.ottry.ticket.TicketStartPage;
 import ru.yandex.qatools.allure.annotations.Step;
 import utils.core.BasePage;
 
@@ -12,8 +13,15 @@ public abstract class BaseServicePage<T extends BaseServicePage> extends BasePag
 
     public BaseServicePage(WebDriver driver) {
         super(driver);
+    }
 
-        //Check that we`re on the right page and it is loaded.
+    By iframeLocator = By.cssSelector("[src*='booking.ottry.com']");
+    By endpointSelectorLocator = By.cssSelector("[id='bo-ev-endpoint']");
+    By goBtnLocator = By.cssSelector(".input-field.center.col.s12.m12.l6 > button");
+    By emailFieldLocator = By.cssSelector("[id='bo-ev-email']");
+    By commentFieldLocator = By.cssSelector("[id='bo-ev-textarea']");
+
+    public void switchToIframe(){
         if (frameIsNotSelected()) {
             try {
                 driver.switchTo().frame(getIframe());
@@ -23,10 +31,6 @@ public abstract class BaseServicePage<T extends BaseServicePage> extends BasePag
         } else System.out.println("Frame is already selected");
     }
 
-    By iframeLocator = By.cssSelector("[src*='booking.ottry.com']");
-    By endpointSelectorLocator = By.cssSelector("[id='bo-ev-endpoint']");
-    By goBtnLocator = By.cssSelector("[class='bo-ev-sb btn waves-effect waves-light']");
-
     public WebElement getIframe() {
         return new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(iframeLocator));
     }
@@ -35,10 +39,16 @@ public abstract class BaseServicePage<T extends BaseServicePage> extends BasePag
         return new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(goBtnLocator));
     }
 
-    @Step("Go button click")
-    public T goBtnClick() {
+    public void goBtnClickGeneral() {
         getGoBtn().click();
-        return (T)this;
+    }
+
+    private WebElement getEmailField() {
+        return driver.findElement(emailFieldLocator);
+    }
+
+    private WebElement getCommentField() {
+        return driver.findElement(commentFieldLocator);
     }
 
     public WebElement getEndpointSelector() {
@@ -49,6 +59,18 @@ public abstract class BaseServicePage<T extends BaseServicePage> extends BasePag
     public T selectEndpoint(String endpoint) {
         Select select = new Select(getEndpointSelector());
         select.selectByVisibleText(endpoint);
+        return (T)this;
+    }
+
+    @Step("Enter email")
+    public T fillEmailField(String email) {
+        getEmailField().sendKeys(email);
+        return (T)this;
+    }
+
+    @Step("Enter comment")
+    public T fillCommentField(String comment) {
+        getCommentField().sendKeys(comment);
         return (T)this;
     }
 

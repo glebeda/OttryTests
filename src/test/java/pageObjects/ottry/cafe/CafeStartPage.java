@@ -7,18 +7,19 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.ottry.BaseServicePage;
-import utils.core.BasePage;
+import pageObjects.ottry.ServiceStart;
+import ru.yandex.qatools.allure.annotations.Step;
 import utils.core.Config;
 
-public class CafePage extends BaseServicePage {
+public class CafeStartPage extends BaseServicePage<CafeStartPage> implements ServiceStart {
 
-    public CafePage(WebDriver driver, Config config) {
+    public CafeStartPage(WebDriver driver, Config config) {
         super(driver);
         try {
             getObBtn();
         } catch (TimeoutException e) {
             System.out.println("Seems that cafe page is not displayed. Trying to navigate...");
-            driver.get(config.getCafeURL());
+            navigateToPage(config.getCafeURL());
         }
         try {
             getObBtn();
@@ -38,12 +39,23 @@ public class CafePage extends BaseServicePage {
     By endDateLocator = By.cssSelector("[id='bo-tv-di-end']");
     By endTimeLocator = By.cssSelector("[id='bo-tv-ti-end']");
 
+    @Override
+    public void navigateToPage(String URL) {
+        driver.get(URL);
+    }
+
+    @Override
+    public BaseServicePage goBtnClick() {
+        return null;
+    }
+
     private WebElement getObBtn() {
         return new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(obBtnLocator));
     }
 
     private WebElement obBtnClick() {
         getObBtn().click();
+        super.switchToIframe();
         return super.getGoBtn();
     }
 
@@ -59,15 +71,32 @@ public class CafePage extends BaseServicePage {
         return driver.findElement(endDateLocator);
     }
 
-    private WebElement getendTimeField() {
+    private WebElement getEndTimeField() {
         return driver.findElement(endTimeLocator);
     }
 
+    @Step("Enter start Date")
+    public CafeStartPage fillStartDateField(String startDate) {
+        getStartDateField().sendKeys(startDate);
+        return this;
+    }
 
+    @Step("Enter start Time")
+    public CafeStartPage fillStartTimeField(String startTime) {
+        getStartTimeField().sendKeys(startTime);
+        return this;
+    }
 
-    
+    @Step("Enter end Date")
+    public CafeStartPage fillEndDateField(String endDate) {
+        getEndDateField().sendKeys(endDate);
+        return this;
+    }
 
-
-
+    @Step("Enter end Time")
+    public CafeStartPage fillEndTimeField(String endTime) {
+        getEndTimeField().sendKeys(endTime);
+        return this;
+    }
 
 }
