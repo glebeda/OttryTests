@@ -33,6 +33,10 @@ public class CafePage extends BaseServicePage {
     }
 
     By obBtnLocator = By.xpath("//button[@class='bo-sbv-b btn waves-effect waves-light']");
+    By startDateLocator = By.cssSelector("[id='bo-tv-di-start']");
+    By startTimeLocator = By.cssSelector("[id='bo-tv-ti-start']");
+    By endDateLocator = By.cssSelector("[id='bo-tv-di-end']");
+    By endTimeLocator = By.cssSelector("[id='bo-tv-ti-end']");
 
     private WebElement getObBtn() {
         return new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(obBtnLocator));
@@ -40,8 +44,30 @@ public class CafePage extends BaseServicePage {
 
     private WebElement obBtnClick() {
         getObBtn().click();
-        return getGoBtn();
+        return super.getGoBtn();
     }
+
+    private WebElement getStartDateField() {
+        return driver.findElement(startDateLocator);
+    }
+
+    private WebElement getStartTimeField() {
+        return driver.findElement(startTimeLocator);
+    }
+
+    private WebElement getEndDateField() {
+        return driver.findElement(endDateLocator);
+    }
+
+    private WebElement getendTimeField() {
+        return driver.findElement(endTimeLocator);
+    }
+
+
+
+    
+
+
 
 
 }

@@ -5,20 +5,19 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pageObjects.ottry.merchant.MerchantBookOrderPage;
 import pageObjects.ottry.merchant.MerchantLoginPage;
-import pageObjects.ottry.ticket.TicketPage;
+import pageObjects.ottry.ticket.TicketStartPage;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
 import ru.yandex.qatools.allure.annotations.TestCaseId;
 import ru.yandex.qatools.allure.annotations.Title;
 import testDataConstructors.BookingData;
 import utils.core.BaseTest;
-import utils.core.Config;
 
 @Features("ottry ticket booking")
 @Title("Ticket smoke test suite")
 
 public class SmokeTS extends BaseTest {
-    private TicketPage page;
+    private TicketStartPage page;
     private MerchantLoginPage merchantLoginPage;
 
     @Autowired
@@ -29,7 +28,7 @@ public class SmokeTS extends BaseTest {
 
     @BeforeMethod
     public void setUp() {
-        page = new TicketPage(driver);
+        page = new TicketStartPage(driver);
     }
 
     @TestCaseId("ID-1")

@@ -21,7 +21,6 @@ public class TicketPage extends BaseServicePage<TicketPage> {
         }
     }
 
-    By goBtnLocator = By.cssSelector("[class='bo-ev-nb btn waves-effect waves-light']");
     By phoneFieldLocator = By.cssSelector("[id='bo-av-592e72b926b2458726557d7f']");
     By emailFieldLocator = By.cssSelector("[id='bo-ev-email']");
     By commentFieldLocator = By.cssSelector("[id='bo-ev-textarea']");
@@ -38,13 +37,9 @@ public class TicketPage extends BaseServicePage<TicketPage> {
         return driver.findElement(commentFieldLocator);
     }
 
-    public WebElement getGoBtn() {
-        return new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(goBtnLocator));
-    }
-
     @Step("Click on Go button")
     public ConfirmationPage goBtnClick() {
-        getGoBtn().click();
+        super.goBtnClickGeneral();
         return new ConfirmationPage(driver);
     }
 
