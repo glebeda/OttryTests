@@ -1,7 +1,6 @@
 package utils;
 
 import org.openqa.selenium.*;
-import pageObjects.google.GooglePage;
 import ru.yandex.qatools.allure.annotations.Attachment;
 import ru.yandex.qatools.allure.annotations.Step;
 
