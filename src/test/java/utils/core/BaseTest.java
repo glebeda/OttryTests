@@ -43,12 +43,7 @@ public abstract class BaseTest extends AbstractTestNGSpringContextTests {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
-
-    @BeforeMethod
-    protected void navigateToApplication() {
-        driver.get(config.getBaseURL());
-    }
-
+    
     //needed for screenshot capture
     @Override
     public void run(IHookCallBack callBack, ITestResult testResult) {
