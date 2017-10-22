@@ -8,7 +8,7 @@
     <context:property-placeholder location="classpath*:**/test-settings.properties"/>
 
     <bean id="config" class="utils.core.Config">
-        <property name="baseURL" value="${baseURL}"/>
+        <property name="ticketURL" value="${ticketURL}"/>
         <property name="merchantURL" value="${merchantURL}"/>
         <property name="cafeURL" value="${cafeURL}"/>
         <property name="merchantLogin" value="${merchantLogin}"/>

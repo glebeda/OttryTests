@@ -9,18 +9,18 @@ package utils.core;
  */
 public class Config {
 
-    public String baseURL;
+    public String ticketURL;
     public String merchantURL;
     public String cafeURL;
     public String merchantLogin;
     public String merchantPassword;
 
-    public String getBaseURL() {
-        return baseURL;
+    public String getTicketURL() {
+        return ticketURL;
     }
 
-    public void setBaseURL(String baseURL) {
-        this.baseURL = baseURL;
+    public void setTicketURL(String ticketURL) {
+        this.ticketURL = ticketURL;
     }
 
     public String getMerchantURL() {

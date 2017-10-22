@@ -15,16 +15,11 @@ public class CafeStartPage extends BaseServicePage<CafeStartPage> implements Ser
 
     public CafeStartPage(WebDriver driver, Config config) {
         super(driver);
+        navigateToPage(config.getCafeURL());
         try {
             getObBtn();
         } catch (TimeoutException e) {
-            System.out.println("Seems that cafe page is not displayed. Trying to navigate...");
-            navigateToPage(config.getCafeURL());
-        }
-        try {
-            getObBtn();
-        } catch (TimeoutException e) {
-            throw new IllegalStateException("OB button is not present after navigation attempt. Cafe page is not loaded", e);
+            throw new IllegalStateException("OB button is not present. Cafe page is not loaded", e);
         }
         try {
             obBtnClick();

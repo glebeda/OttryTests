@@ -15,7 +15,7 @@ public abstract class BaseServicePage<T extends BaseServicePage> extends BasePag
         super(driver);
     }
 
-    By iframeLocator = By.cssSelector("[src*='booking.ottry.com']");
+    By iframeLocator = By.cssSelector("iframe[src*='booking.ottry.com']");
     By endpointSelectorLocator = By.cssSelector("[id='bo-ev-endpoint']");
     By goBtnLocator = By.cssSelector(".input-field.center.col.s12.m12.l6 > button");
     By emailFieldLocator = By.cssSelector("[id='bo-ev-email']");

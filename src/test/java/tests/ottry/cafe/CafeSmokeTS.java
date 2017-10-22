@@ -36,6 +36,6 @@ public class CafeSmokeTS extends BaseTest {
                 fillEmailField("yaz@yaz.ru").
                 fillCommentField("NewComent").
                 goBtnClick();
-
+                Thread.sleep(10000);
     }
 }

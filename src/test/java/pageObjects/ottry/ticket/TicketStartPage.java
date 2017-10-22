@@ -8,15 +8,18 @@ import pageObjects.ottry.BaseServicePage;
 import pageObjects.ottry.ServiceStart;
 import ru.yandex.qatools.allure.annotations.Step;
 import testDataConstructors.BookingData;
+import utils.Utils;
+import utils.core.Config;
 
 public class TicketStartPage extends BaseServicePage<TicketStartPage> implements ServiceStart {
 
-    public TicketStartPage(WebDriver driver) {
+    public TicketStartPage(WebDriver driver, Config config) {
         super(driver);
+        navigateToPage(config.getTicketURL());
         try {
             getGoBtn();
         } catch (TimeoutException e) {
-            throw new IllegalStateException("Go button is not present. Considering that this is not a ticket page", e);
+            throw new IllegalStateException("Go button is not present. Considering that this is not ticekt page", e);
         }
     }
 
@@ -28,7 +31,8 @@ public class TicketStartPage extends BaseServicePage<TicketStartPage> implements
 
     @Override
     public void navigateToPage(String URL) {
-
+        driver.get(URL);
+        super.switchToIframe();
     }
 
     @Step("Click on Go button")

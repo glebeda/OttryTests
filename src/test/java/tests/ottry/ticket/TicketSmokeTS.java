@@ -28,7 +28,7 @@ public class TicketSmokeTS extends BaseTest {
 
     @BeforeMethod
     public void setUp() {
-        page = new TicketStartPage(driver);
+        page = new TicketStartPage(driver, config);
     }
 
     @TestCaseId("ID-1")
