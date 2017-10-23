@@ -4,12 +4,16 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <bean id="smokeBooking" class="testDataConstructors.BookingData">
+    <bean id="ticketSmokeBooking" class="testDataConstructors.BookingData">
         <property name="endpoint" value="VIP"/>
         <property name="phone" value="0676665544"/>
         <property name="email" value="selenium@gmailly.com"/>
         <property name="comment" value="smoke booking test"/>
         <property name="status" value="Complete"/>
+        <property name="startDate" value=""/>
+        <property name="stopDate" value=""/>
+        <property name="startTime" value=""/>
+        <property name="stopTime" value=""/>
     </bean>
     <bean id="pendingBooking" class="testDataConstructors.BookingData">
         <property name="endpoint" value="Фан зона"/>
@@ -17,5 +21,20 @@
         <property name="email" value="pending@ukr.net"/>
         <property name="comment" value="pending booking test"/>
         <property name="status" value="Pending"/>
+        <property name="startDate" value=""/>
+        <property name="stopDate" value=""/>
+        <property name="startTime" value=""/>
+        <property name="stopTime" value=""/>
+    </bean>
+    <bean id="cafeSmokeBooking" class="testDataConstructors.BookingData">
+        <property name="endpoint" value="Фан зона"/>
+        <property name="phone" value="+380677654322"/>
+        <property name="email" value="pending@ukr.net"/>
+        <property name="comment" value="pending booking test"/>
+        <property name="status" value="Pending"/>
+        <property name="startDate" value="19.10.2017"/>
+        <property name="stopDate" value="19.10.2017"/>
+        <property name="startTime" value="06:00"/>
+        <property name="stopTime" value="06:30"/>
     </bean>
 </beans>

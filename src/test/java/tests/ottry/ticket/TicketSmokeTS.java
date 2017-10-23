@@ -21,7 +21,7 @@ public class TicketSmokeTS extends BaseTest {
     private MerchantLoginPage merchantLoginPage;
 
     @Autowired
-    private BookingData smokeBooking;
+    private BookingData ticketSmokeBooking;
 
     @Autowired
     private BookingData pendingBooking;
@@ -37,7 +37,7 @@ public class TicketSmokeTS extends BaseTest {
     @Test
     public void ticketBooking() throws InterruptedException {
         page.bookTicket(smokeBooking);
-        MerchantPageVerification(pendingBooking);
+        merchantPageVerification(pendingBooking);
     }
 
     @TestCaseId("ID-2")
@@ -51,10 +51,10 @@ public class TicketSmokeTS extends BaseTest {
                 fillCommentField(pendingBooking.getComment()).
                 goBtnClick().
                 continueBtnClick();
-        MerchantPageVerification(pendingBooking);
+        merchantPageVerification(pendingBooking);
     }
 
-    private void MerchantPageVerification(BookingData booking) {
+    private void merchantPageVerification(BookingData booking) {
         merchantLoginPage = new MerchantLoginPage(driver, config);
         MerchantBookOrderPage bookOrderPage = merchantLoginPage.loginToMerchant().
                 bookOrderClick();

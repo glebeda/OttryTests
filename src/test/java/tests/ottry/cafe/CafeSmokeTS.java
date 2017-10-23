@@ -1,5 +1,6 @@
 package tests.ottry.cafe;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pageObjects.ottry.cafe.CafeStartPage;
@@ -9,6 +10,7 @@ import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
 import ru.yandex.qatools.allure.annotations.TestCaseId;
 import ru.yandex.qatools.allure.annotations.Title;
+import testDataConstructors.BookingData;
 import utils.core.BaseTest;
 
 @Features("ottry cafe booking")
@@ -18,6 +20,9 @@ public class CafeSmokeTS extends BaseTest {
     private CafeStartPage page;
     private MerchantLoginPage merchantLoginPage;
 
+    @Autowired
+    private BookingData cafeSmokeBooking;
+    
     @BeforeMethod
     public void setUp() {
         page = new CafeStartPage(driver, config);
@@ -35,7 +40,9 @@ public class CafeSmokeTS extends BaseTest {
                 fillEndTimeField("06:30").
                 fillEmailField("yaz@yaz.ru").
                 fillCommentField("NewComent").
-                goBtnClick();
-                Thread.sleep(10000);
+                goBtnClick().
+                continueBtnClick().
+                bookBtnClick();
+        MerchantPageVerification(pendingBooking);
     }
 }

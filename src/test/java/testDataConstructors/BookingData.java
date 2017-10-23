@@ -8,6 +8,10 @@ public class BookingData {
     private String email;
     private String comment;
     private String status;
+    private String startDate;
+    private String stopDate;
+    private String startTime;
+    private String stopTime;
 
     public String getEndpoint() {
         return endpoint;
@@ -47,5 +51,37 @@ public class BookingData {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
+
+    public String getStopDate() {
+        return stopDate;
+    }
+
+    public void setStopDate(String stopDate) {
+        this.stopDate = stopDate;
+    }
+
+    public String getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getStopTime() {
+        return stopTime;
+    }
+
+    public void setStopTime(String stopTime) {
+        this.stopTime = stopTime;
     }
 }
