@@ -1,4 +1,4 @@
-package tests.ottry.ticket;
+package tests.ticket;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.annotations.BeforeMethod;
