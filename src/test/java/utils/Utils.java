@@ -25,7 +25,7 @@ public class Utils {
     }
 
     public static void scrollIntoView(WebDriver driver, WebElement element){
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(false);", element);
         try {
             waitForCertainTime(500);
         } catch (InterruptedException e) {

@@ -56,7 +56,6 @@ public class CafeStartPage extends BaseServicePage<CafeStartPage> implements Ser
     private WebElement obBtnClick() {
         getObBtn().click();
         super.switchToIframe();
-        scrollIntoView(driver, getGoBtn());
         return super.getGoBtn();
     }
 

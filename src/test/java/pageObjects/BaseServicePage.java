@@ -45,7 +45,7 @@ public abstract class BaseServicePage<T extends BaseServicePage> extends BasePag
     }
 
     public void goBtnClickGeneral() {
-        //scrollIntoView(driver, getGoBtn());
+        scrollIntoView(driver, getGoBtn());
         getGoBtn().click();
     }
 
