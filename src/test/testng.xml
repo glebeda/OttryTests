@@ -8,6 +8,7 @@
                     <include name="logoutFromWebuiApplication"/>
                 </methods>-->
             </class>
+            <class name="tests.ottry.cafe.CafeSmokeTS"/>
         </classes>
     </test>
 </suite>

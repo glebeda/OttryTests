@@ -1,14 +1,14 @@
-package pageObjects.ottry.ticket;
+package pageObjects.ticket;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import pageObjects.ottry.BaseServicePage;
-import pageObjects.ottry.ServiceStart;
+import pageObjects.ConfirmationPage;
+import pageObjects.ServiceStart;
+import pageObjects.BaseServicePage;
 import ru.yandex.qatools.allure.annotations.Step;
 import testDataConstructors.BookingData;
-import utils.Utils;
 import utils.core.Config;
 
 public class TicketStartPage extends BaseServicePage<TicketStartPage> implements ServiceStart {

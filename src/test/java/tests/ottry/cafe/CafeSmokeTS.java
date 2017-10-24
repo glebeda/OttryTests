@@ -3,8 +3,7 @@ package tests.ottry.cafe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pageObjects.ottry.cafe.CafeStartPage;
-import pageObjects.ottry.merchant.MerchantLoginPage;
+import pageObjects.cafe.CafeStartPage;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
 import ru.yandex.qatools.allure.annotations.TestCaseId;
@@ -18,7 +17,6 @@ import static utils.Utils.verifyBookingOnMerchantPage;
 
 public class CafeSmokeTS extends BaseTest {
     private CafeStartPage page;
-    private MerchantLoginPage merchantLoginPage;
 
     @Autowired
     private BookingData cafeSmokeBooking;

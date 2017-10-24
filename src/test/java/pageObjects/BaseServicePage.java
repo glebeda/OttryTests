@@ -1,11 +1,9 @@
-package pageObjects.ottry;
+package pageObjects;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pageObjects.ottry.ticket.BookingPage;
-import pageObjects.ottry.ticket.TicketStartPage;
 import ru.yandex.qatools.allure.annotations.Step;
 import utils.core.BasePage;
 

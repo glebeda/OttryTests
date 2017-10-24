@@ -1,4 +1,4 @@
-package pageObjects.ottry.merchant;
+package pageObjects.merchant;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import ru.yandex.qatools.allure.annotations.Step;
 import utils.core.BasePage;
 import utils.core.Config;
 
@@ -42,6 +43,7 @@ public class MerchantLoginPage extends BasePage {
         return driver.findElement(okButtonLocator);
     }
 
+    @Step("Login to merchant page")
     public MerchantMainPage loginToMerchant(String login, String pass) {
         this.fillLoginField(login).
                 fillPasswordField(pass).
@@ -49,6 +51,7 @@ public class MerchantLoginPage extends BasePage {
         return new MerchantMainPage(driver);
     }
 
+    @Step("Login to merchant page using default credentials")
     public MerchantMainPage loginToMerchant() {
         return loginToMerchant(merchantLogin, merchantPassword);
     }

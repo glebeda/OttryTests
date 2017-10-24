@@ -1,4 +1,4 @@
-package pageObjects.ottry.merchant;
+package pageObjects.merchant;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
@@ -10,6 +10,7 @@ import utils.core.BasePage;
 import utils.core.TableController;
 
 public class MerchantBookOrderPage extends BasePage {
+    private static final int FIRST_ROW_INDEX = 0;
 
     public MerchantBookOrderPage (WebDriver driver) {
     super(driver);
@@ -29,12 +30,12 @@ public class MerchantBookOrderPage extends BasePage {
 
     public String getFirstRowEmail() {
         TableController tableController = new TableController();
-        return tableController.getTableCell(getBookOrderTable(), 1, ColumnName.EMAIL.toString()).getText();
+        return tableController.getTableCell(getBookOrderTable(), FIRST_ROW_INDEX, ColumnName.EMAIL.toString()).getText();
     }
 
     public String getFirstRowStatus() {
         TableController tableController = new TableController();
-        return tableController.getTableCell(getBookOrderTable(), 1, ColumnName.STATUS.toString()).getText();
+        return tableController.getTableCell(getBookOrderTable(), FIRST_ROW_INDEX, ColumnName.STATUS.toString()).getText();
     }
 
     private WebElement getBookOrderTable() {

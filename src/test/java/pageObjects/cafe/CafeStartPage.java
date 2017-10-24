@@ -1,4 +1,4 @@
-package pageObjects.ottry.cafe;
+package pageObjects.cafe;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
@@ -6,9 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pageObjects.ottry.BaseServicePage;
-import pageObjects.ottry.ServiceStart;
-import pageObjects.ottry.ticket.ConfirmationPage;
+import pageObjects.BaseServicePage;
+import pageObjects.ServiceStart;
+import pageObjects.ConfirmationPage;
 import ru.yandex.qatools.allure.annotations.Step;
 import testDataConstructors.BookingData;
 import utils.core.Config;

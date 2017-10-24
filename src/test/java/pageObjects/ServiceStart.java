@@ -1,6 +1,4 @@
-package pageObjects.ottry;
-
-import utils.core.BasePage;
+package pageObjects;
 
 public interface ServiceStart {
 

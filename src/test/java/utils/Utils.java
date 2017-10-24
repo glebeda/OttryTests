@@ -1,8 +1,8 @@
 package utils;
 
 import org.openqa.selenium.*;
-import pageObjects.ottry.merchant.MerchantBookOrderPage;
-import pageObjects.ottry.merchant.MerchantLoginPage;
+import pageObjects.merchant.MerchantBookOrderPage;
+import pageObjects.merchant.MerchantLoginPage;
 import ru.yandex.qatools.allure.annotations.Attachment;
 import ru.yandex.qatools.allure.annotations.Step;
 import testDataConstructors.BookingData;
