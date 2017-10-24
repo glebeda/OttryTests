@@ -18,16 +18,11 @@ public class MerchantLoginPage extends BasePage {
         super(driver);
         merchantLogin = config.getMerchantLogin();
         merchantPassword = config.getMerchantPassword();
+        driver.get(config.getMerchantURL());
         try {
             getLoginField();
         } catch (TimeoutException e) {
-            System.out.println("Seems that login page is not displayed. Trying to navigate...");
-            driver.get(config.getMerchantURL());
-        }
-        try {
-            getLoginField();
-        } catch (TimeoutException e) {
-            throw new IllegalStateException("Login field is not present after navigation attempt. It is not login page", e);
+            throw new IllegalStateException("Login field is not present after navigation attempt. It`s not a login page", e);
         }
     }
 

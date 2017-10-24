@@ -1,8 +1,12 @@
 package utils;
 
 import org.openqa.selenium.*;
+import pageObjects.ottry.merchant.MerchantBookOrderPage;
+import pageObjects.ottry.merchant.MerchantLoginPage;
 import ru.yandex.qatools.allure.annotations.Attachment;
 import ru.yandex.qatools.allure.annotations.Step;
+import testDataConstructors.BookingData;
+import utils.core.Config;
 
 import java.io.IOException;
 
@@ -11,19 +15,14 @@ import java.io.IOException;
  */
 public class Utils {
 
-/*    @Step("Login into application if not logged in")
-    public static void loginIfNotLoggedIn (WebDriver driver, UserData userData) throws InterruptedException {
-        GooglePage loginPage;
-
-        try {
-            loginPage = new GooglePage(driver);
-        } catch (IllegalStateException e) {
-            System.out.println("Already logged in");
-            return;
-        }
-        loginPage.loginIntoApplication(userData.getLogin(), userData.getPass());
-
-    }*/
+    @Step("Verify that booking has correct state on Merchant book order page")
+    public static void verifyBookingOnMerchantPage(BookingData booking, WebDriver driver, Config config) {
+        MerchantLoginPage merchantLoginPage = new MerchantLoginPage(driver, config);
+        MerchantBookOrderPage bookOrderPage = merchantLoginPage.loginToMerchant().
+                bookOrderClick();
+        assert bookOrderPage.getFirstRowEmail().equalsIgnoreCase(booking.getEmail()) : "Book order is not present in the first row. Email for booking = " + booking.getEmail();
+        assert bookOrderPage.getFirstRowStatus().equalsIgnoreCase(booking.getStatus()) : "Book order status is wrong. Expected: " + booking.getStatus();
+    }
 
     @Attachment(value = "Test Screenshot", type = "image/png")
     public static byte[] takeScreenShot(WebDriver driver) throws IOException {

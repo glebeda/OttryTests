@@ -5,13 +5,13 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pageObjects.ottry.cafe.CafeStartPage;
 import pageObjects.ottry.merchant.MerchantLoginPage;
-import pageObjects.ottry.ticket.TicketStartPage;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
 import ru.yandex.qatools.allure.annotations.TestCaseId;
 import ru.yandex.qatools.allure.annotations.Title;
 import testDataConstructors.BookingData;
 import utils.core.BaseTest;
+import static utils.Utils.verifyBookingOnMerchantPage;
 
 @Features("ottry cafe booking")
 @Title("Cafe smoke test suite")
@@ -22,27 +22,38 @@ public class CafeSmokeTS extends BaseTest {
 
     @Autowired
     private BookingData cafeSmokeBooking;
-    
+
+    @Autowired
+    private BookingData cafePendingBooking;
+
     @BeforeMethod
     public void setUp() {
         page = new CafeStartPage(driver, config);
     }
 
     @TestCaseId("ID-3")
-    @Title("Cafe booking")
+    @Title("Complete cafe table booking")
     @Stories("ID-13")
     @Test
-    public void cafeBooking() throws InterruptedException {
-        page.selectEndpoint("Стол №1").
-                fillStartDateField("19.10.2017").
-                fillStartTimeField("06:00").
-                fillEndDateField("19.10.2017").
-                fillEndTimeField("06:30").
-                fillEmailField("yaz@yaz.ru").
-                fillCommentField("NewComent").
+    public void cafeTableBooking() throws InterruptedException {
+        page.bookTable(cafeSmokeBooking);
+        verifyBookingOnMerchantPage(cafeSmokeBooking, driver, config);
+    }
+
+    @TestCaseId("ID-4")
+    @Title("Pending cafe table booking")
+    @Stories("ID-14")
+    @Test
+    public void pendingCafeTableBooking() throws InterruptedException {
+        page.selectEndpoint(cafePendingBooking.getEndpoint()).
+                fillStartDateField(cafePendingBooking.getStartDate()).
+                fillStartTimeField(cafePendingBooking.getStartTime()).
+                fillEndDateField(cafePendingBooking.getEndDate()).
+                fillEndTimeField(cafePendingBooking.getEndTime()).
+                fillEmailField(cafePendingBooking.getEmail()).
+                fillCommentField(cafePendingBooking.getComment()).
                 goBtnClick().
-                continueBtnClick().
-                bookBtnClick();
-        MerchantPageVerification(pendingBooking);
+                continueBtnClick();
+        verifyBookingOnMerchantPage(cafePendingBooking, driver, config);
     }
 }

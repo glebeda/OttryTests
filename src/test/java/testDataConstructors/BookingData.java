@@ -1,7 +1,5 @@
 package testDataConstructors;
 
-import org.springframework.beans.factory.InitializingBean;
-
 public class BookingData {
     private String endpoint;
     private String phone;
@@ -9,9 +7,9 @@ public class BookingData {
     private String comment;
     private String status;
     private String startDate;
-    private String stopDate;
+    private String endDate;
     private String startTime;
-    private String stopTime;
+    private String endTime;
 
     public String getEndpoint() {
         return endpoint;
@@ -61,12 +59,12 @@ public class BookingData {
         this.startDate = startDate;
     }
 
-    public String getStopDate() {
-        return stopDate;
+    public String getEndDate() {
+        return endDate;
     }
 
-    public void setStopDate(String stopDate) {
-        this.stopDate = stopDate;
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
     }
 
     public String getStartTime() {
@@ -77,11 +75,11 @@ public class BookingData {
         this.startTime = startTime;
     }
 
-    public String getStopTime() {
-        return stopTime;
+    public String getEndTime() {
+        return endTime;
     }
 
-    public void setStopTime(String stopTime) {
-        this.stopTime = stopTime;
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
     }
 }

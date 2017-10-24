@@ -38,7 +38,7 @@ public class MerchantBookOrderPage extends BasePage {
     }
 
     private WebElement getBookOrderTable() {
-        return driver.findElement(bookOrderTableLocator);
+        return new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(bookOrderTableLocator));
     }
 
     private enum ColumnName {

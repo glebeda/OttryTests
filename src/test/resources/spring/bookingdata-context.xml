@@ -11,30 +11,41 @@
         <property name="comment" value="smoke booking test"/>
         <property name="status" value="Complete"/>
         <property name="startDate" value=""/>
-        <property name="stopDate" value=""/>
+        <property name="endDate" value=""/>
         <property name="startTime" value=""/>
-        <property name="stopTime" value=""/>
+        <property name="endTime" value=""/>
     </bean>
-    <bean id="pendingBooking" class="testDataConstructors.BookingData">
+    <bean id="ticketPendingBooking" class="testDataConstructors.BookingData">
         <property name="endpoint" value="Фан зона"/>
         <property name="phone" value="+380677654322"/>
         <property name="email" value="pending@ukr.net"/>
         <property name="comment" value="pending booking test"/>
         <property name="status" value="Pending"/>
         <property name="startDate" value=""/>
-        <property name="stopDate" value=""/>
+        <property name="endDate" value=""/>
         <property name="startTime" value=""/>
-        <property name="stopTime" value=""/>
+        <property name="endTime" value=""/>
     </bean>
     <bean id="cafeSmokeBooking" class="testDataConstructors.BookingData">
-        <property name="endpoint" value="Фан зона"/>
-        <property name="phone" value="+380677654322"/>
-        <property name="email" value="pending@ukr.net"/>
-        <property name="comment" value="pending booking test"/>
-        <property name="status" value="Pending"/>
+        <property name="endpoint" value="Стол №3"/>
+        <property name="phone" value="+380662225577"/>
+        <property name="email" value="cafe.trololo@rambler.ru"/>
+        <property name="comment" value="cafe smoke test"/>
+        <property name="status" value="Complete"/>
         <property name="startDate" value="19.10.2017"/>
-        <property name="stopDate" value="19.10.2017"/>
+        <property name="endDate" value="19.10.2017"/>
         <property name="startTime" value="06:00"/>
-        <property name="stopTime" value="06:30"/>
+        <property name="endTime" value="06:30"/>
+    </bean>
+    <bean id="cafePendingBooking" class="testDataConstructors.BookingData">
+        <property name="endpoint" value="Стол №1"/>
+        <property name="phone" value="+380442235544"/>
+        <property name="email" value="vasyl.vasyltsiv@meta.ua"/>
+        <property name="comment" value="cafe pending table booking"/>
+        <property name="status" value="Pending"/>
+        <property name="startDate" value="20.10.2017"/>
+        <property name="endDate" value="20.10.2017"/>
+        <property name="startTime" value="19:00"/>
+        <property name="endTime" value="22:30"/>
     </bean>
 </beans>

@@ -9,7 +9,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.ottry.BaseServicePage;
 import pageObjects.ottry.ServiceStart;
 import pageObjects.ottry.ticket.ConfirmationPage;
-import pageObjects.ottry.ticket.TicketStartPage;
 import ru.yandex.qatools.allure.annotations.Step;
 import testDataConstructors.BookingData;
 import utils.core.Config;
@@ -99,15 +98,14 @@ public class CafeStartPage extends BaseServicePage<CafeStartPage> implements Ser
     }
 
     @Step("Book a table")
-    public CafeStartPage bookTicket(BookingData data) throws InterruptedException {
-
+    public CafeStartPage bookTable(BookingData data) throws InterruptedException {
         this.selectEndpoint(data.getEndpoint()).
-                fillStartDateField(data).
-                fillStartTimeField("06:00").
-                fillEndDateField("19.10.2017").
-                fillEndTimeField("06:30").
-                fillEmailField("yaz@yaz.ru").
-                fillCommentField("NewComent").
+                fillStartDateField(data.getStartDate()).
+                fillStartTimeField(data.getStartTime()).
+                fillEndDateField(data.getEndDate()).
+                fillEndTimeField(data.getEndTime()).
+                fillEmailField(data.getEmail()).
+                fillCommentField(data.getComment()).
                 goBtnClick().
                 continueBtnClick().
                 bookBtnClick();
