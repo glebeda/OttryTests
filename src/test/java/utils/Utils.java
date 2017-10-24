@@ -24,9 +24,13 @@ public class Utils {
         assert bookOrderPage.getFirstRowStatus().equalsIgnoreCase(booking.getStatus()) : "Book order status is wrong. Expected: " + booking.getStatus();
     }
 
-    public static void scrollIntoView(WebDriver driver, WebElement element) throws InterruptedException {
+    public static void scrollIntoView(WebDriver driver, WebElement element){
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
-        waitForCertainTime(500);
+        try {
+            waitForCertainTime(500);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
     }
 
     @Attachment(value = "Test Screenshot", type = "image/png")

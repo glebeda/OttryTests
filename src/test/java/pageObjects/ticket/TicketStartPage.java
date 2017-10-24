@@ -9,6 +9,7 @@ import pageObjects.ServiceStart;
 import pageObjects.BaseServicePage;
 import ru.yandex.qatools.allure.annotations.Step;
 import testDataConstructors.BookingData;
+import utils.Utils;
 import utils.core.Config;
 
 public class TicketStartPage extends BaseServicePage<TicketStartPage> implements ServiceStart {
@@ -33,6 +34,7 @@ public class TicketStartPage extends BaseServicePage<TicketStartPage> implements
     public void navigateToPage(String URL) {
         driver.get(URL);
         super.switchToIframe();
+        Utils.scrollIntoView(driver, getIframe());
     }
 
     @Step("Click on Go button")

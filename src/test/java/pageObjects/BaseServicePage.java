@@ -45,11 +45,7 @@ public abstract class BaseServicePage<T extends BaseServicePage> extends BasePag
     }
 
     public void goBtnClickGeneral() {
-        try {
-            scrollIntoView(driver, getGoBtn());
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
+        //scrollIntoView(driver, getGoBtn());
         getGoBtn().click();
     }
 

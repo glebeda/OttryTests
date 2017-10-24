@@ -13,6 +13,8 @@ import ru.yandex.qatools.allure.annotations.Step;
 import testDataConstructors.BookingData;
 import utils.core.Config;
 
+import static utils.Utils.scrollIntoView;
+
 public class CafeStartPage extends BaseServicePage<CafeStartPage> implements ServiceStart {
 
     public CafeStartPage(WebDriver driver, Config config) {
@@ -54,6 +56,7 @@ public class CafeStartPage extends BaseServicePage<CafeStartPage> implements Ser
     private WebElement obBtnClick() {
         getObBtn().click();
         super.switchToIframe();
+        scrollIntoView(driver, getGoBtn());
         return super.getGoBtn();
     }
 
