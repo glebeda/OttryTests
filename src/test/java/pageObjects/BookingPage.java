@@ -21,7 +21,7 @@ public class BookingPage extends BaseServicePage {
 
     By bookBtnLocator = By.cssSelector("[class ='bo-ev-sb btn waves-effect waves-light']");
 
-    @Step("Book button click")
+    @Step("Click on book button")
     public BookingPage bookBtnClick() {
         getBookBtn().click();
         return this;

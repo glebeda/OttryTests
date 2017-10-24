@@ -21,7 +21,7 @@ public class ConfirmationPage extends BaseServicePage {
 
     By continueBtnLocator = By.cssSelector("[class ='bo-ev-lb btn waves-effect waves-light']");
 
-    @Step("Continue button click")
+    @Step("Click on continue click")
     public BookingPage continueBtnClick() throws InterruptedException {
         WebElement btn = getContinueBtn();
         Utils.waitForCertainTime(500); //TODO: Continue button is not clickable without delay
