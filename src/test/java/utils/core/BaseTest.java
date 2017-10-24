@@ -36,7 +36,7 @@ public abstract class BaseTest extends AbstractTestNGSpringContextTests {
 
     @BeforeClass
     protected void initialize() {
-        System.setProperty("webdriver.gecko.driver", "h:\\Projects\\OttryTests\\geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver", "src/test/resources/drivers/geckodriver.exe");
         driver = new FirefoxDriver();
         driver.manage().window().maximize();
         driver.manage().window().maximize(); //workaround for Firefox 56. See https://github.com/mozilla/geckodriver/issues/993
