@@ -3,6 +3,7 @@ package utils.core;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -35,12 +36,10 @@ public abstract class BaseTest extends AbstractTestNGSpringContextTests {
 
     @BeforeClass
     protected void initialize() {
-
-        DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-        capabilities.setCapability("marionette", false);
-
-        driver = new FirefoxDriver(capabilities);
+        System.setProperty("webdriver.gecko.driver", "h:\\Projects\\OttryTests\\geckodriver.exe");
+        driver = new FirefoxDriver();
         driver.manage().window().maximize();
+        driver.manage().window().maximize(); //workaround for Firefox 56. See https://github.com/mozilla/geckodriver/issues/993
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
     

@@ -1,11 +1,18 @@
 package pageObjects;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.qatools.allure.annotations.Step;
+import utils.Utils;
 import utils.core.BasePage;
+
+import javax.rmi.CORBA.Util;
+
+import static utils.Utils.scrollIntoView;
+import static utils.Utils.waitForCertainTime;
 
 public abstract class BaseServicePage<T extends BaseServicePage> extends BasePage {
 
@@ -34,10 +41,15 @@ public abstract class BaseServicePage<T extends BaseServicePage> extends BasePag
     }
 
     public WebElement getGoBtn() {
-        return new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(goBtnLocator));
+        return new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(goBtnLocator));
     }
 
     public void goBtnClickGeneral() {
+        try {
+            scrollIntoView(driver, getGoBtn());
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
         getGoBtn().click();
     }
 

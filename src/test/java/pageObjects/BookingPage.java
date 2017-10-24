@@ -28,7 +28,7 @@ public class BookingPage extends BaseServicePage {
     }
 
     private WebElement getBookBtn() {
-        return new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(bookBtnLocator));
+        return new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(bookBtnLocator));
     }
 
 }
