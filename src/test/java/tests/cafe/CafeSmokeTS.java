@@ -40,7 +40,7 @@ public class CafeSmokeTS extends BaseTest {
 
     @TestCaseId("ID-4")
     @Title("Pending cafe table booking")
-    @Stories("ID-14")
+    @Stories("ID-13")
     @Test
     public void pendingCafeTableBooking() throws InterruptedException {
         page.selectEndpoint(cafePendingBooking.getEndpoint()).
