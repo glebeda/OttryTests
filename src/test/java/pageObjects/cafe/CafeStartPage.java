@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.BaseServicePage;
 import pageObjects.ServiceStart;
 import pageObjects.ConfirmationPage;
-import ru.yandex.qatools.allure.annotations.Step;
+import io.qameta.allure.Step;
 import testDataConstructors.BookingData;
 import utils.core.Config;
 

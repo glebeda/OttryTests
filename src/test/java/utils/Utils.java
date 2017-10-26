@@ -3,8 +3,8 @@ package utils;
 import org.openqa.selenium.*;
 import pageObjects.merchant.MerchantBookOrderPage;
 import pageObjects.merchant.MerchantLoginPage;
-import ru.yandex.qatools.allure.annotations.Attachment;
-import ru.yandex.qatools.allure.annotations.Step;
+import io.qameta.allure.Attachment;
+import io.qameta.allure.Step;
 import testDataConstructors.BookingData;
 import utils.core.Config;
 

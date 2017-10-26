@@ -3,12 +3,12 @@
 <suite verbose="0" name="Firefox" parallel="false">
     <test name="Ottry">
         <classes>
-            <class name="tests.ticket.TicketSmokeTS"><!--<methods>
-                    <include name="loginPositiveTestCase"/>
-                    <include name="logoutFromWebuiApplication"/>
-                </methods>-->
+            <class name="tests.ticket.TicketSmokeTS">
+                <methods>
+                    <include name="pendingTicketBooking"/>
+                </methods>
             </class>
-            <class name="tests.cafe.CafeSmokeTS"/>
+            <!--<class name="tests.cafe.CafeSmokeTS"/>-->
         </classes>
     </test>
 </suite>

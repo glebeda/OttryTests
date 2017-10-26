@@ -4,17 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pageObjects.ticket.TicketStartPage;
-import ru.yandex.qatools.allure.annotations.Features;
-import ru.yandex.qatools.allure.annotations.Stories;
-import ru.yandex.qatools.allure.annotations.TestCaseId;
-import ru.yandex.qatools.allure.annotations.Title;
 import testDataConstructors.BookingData;
 import utils.core.BaseTest;
+import io.qameta.allure.*;
 
 import static utils.Utils.verifyBookingOnMerchantPage;
 
-@Features("ottry ticket booking")
-@Title("Ticket smoke test suite")
+@Feature("ottry ticket booking")
 
 public class TicketSmokeTS extends BaseTest {
     private TicketStartPage page;
@@ -30,18 +26,16 @@ public class TicketSmokeTS extends BaseTest {
         page = new TicketStartPage(driver, config);
     }
 
-    @TestCaseId("ID-1")
-    @Title("Complete ticket booking")
-    @Stories("ID-12")
+    @Description("Complete ticket booking")
+    @Story("ID-12")
     @Test
     public void ticketBooking() throws InterruptedException {
         page.bookTicket(ticketSmokeBooking);
         verifyBookingOnMerchantPage(ticketSmokeBooking, driver, config);
     }
 
-    @TestCaseId("ID-2")
-    @Title("Pending ticket booking")
-    @Stories("ID-12")
+    @Description("Pending ticket booking")
+    @Story("ID-12")
     @Test
     public void pendingTicketBooking() throws InterruptedException {
         page.selectEndpoint(ticketPendingBooking.getEndpoint()).

@@ -4,16 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pageObjects.cafe.CafeStartPage;
-import ru.yandex.qatools.allure.annotations.Features;
-import ru.yandex.qatools.allure.annotations.Stories;
-import ru.yandex.qatools.allure.annotations.TestCaseId;
-import ru.yandex.qatools.allure.annotations.Title;
+import io.qameta.allure.*;
 import testDataConstructors.BookingData;
 import utils.core.BaseTest;
 import static utils.Utils.verifyBookingOnMerchantPage;
 
-@Features("ottry cafe booking")
-@Title("Cafe smoke test suite")
+@Feature("ottry cafe booking")
 
 public class CafeSmokeTS extends BaseTest {
     private CafeStartPage page;
@@ -29,18 +25,16 @@ public class CafeSmokeTS extends BaseTest {
         page = new CafeStartPage(driver, config);
     }
 
-    @TestCaseId("ID-3")
-    @Title("Complete cafe table booking")
-    @Stories("ID-13")
+    @Description("Complete cafe table booking")
+    @Story("ID-13")
     @Test
     public void cafeTableBooking() throws InterruptedException {
         page.bookTable(cafeSmokeBooking);
         verifyBookingOnMerchantPage(cafeSmokeBooking, driver, config);
     }
 
-    @TestCaseId("ID-4")
-    @Title("Pending cafe table booking")
-    @Stories("ID-13")
+    @Description("Pending cafe table booking")
+    @Story("ID-13")
     @Test
     public void pendingCafeTableBooking() throws InterruptedException {
         page.selectEndpoint(cafePendingBooking.getEndpoint()).

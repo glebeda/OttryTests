@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import pageObjects.ConfirmationPage;
 import pageObjects.ServiceStart;
 import pageObjects.BaseServicePage;
-import ru.yandex.qatools.allure.annotations.Step;
+import io.qameta.allure.Step;
 import testDataConstructors.BookingData;
 import utils.Utils;
 import utils.core.Config;
