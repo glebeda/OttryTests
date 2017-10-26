@@ -4,11 +4,11 @@
     <test name="Ottry">
         <classes>
             <class name="tests.ticket.TicketSmokeTS">
-                <methods>
+                <!--<methods>
                     <include name="pendingTicketBooking"/>
-                </methods>
+                </methods>-->
             </class>
-            <!--<class name="tests.cafe.CafeSmokeTS"/>-->
+            <class name="tests.cafe.CafeSmokeTS"/>
         </classes>
     </test>
 </suite>
