@@ -20,8 +20,8 @@ public class Utils {
         MerchantLoginPage merchantLoginPage = new MerchantLoginPage(driver, config);
         MerchantBookOrderPage bookOrderPage = merchantLoginPage.loginToMerchant().
                 bookOrderClick();
-        assert bookOrderPage.getFirstRowEmail().equalsIgnoreCase(booking.getEmail()) : "Book order is not present in the first row. Email for booking = " + booking.getEmail();
-        assert bookOrderPage.getFirstRowStatus().equalsIgnoreCase(booking.getStatus()) : "Book order status is wrong. Expected: " + booking.getStatus();
+        assert bookOrderPage.getFirstRowEmail().equalsIgnoreCase(booking.getEmail()) : "Book order is not present in the first row. Email for booking = " + booking.getEmail() + ". Actual: " + bookOrderPage.getFirstRowEmail();
+        assert bookOrderPage.getFirstRowStatus().equalsIgnoreCase(booking.getStatus()) : "Book order status is wrong. Expected: " + booking.getStatus() + ". Actual: " + bookOrderPage.getFirstRowStatus();
     }
 
     public static void scrollIntoView(WebDriver driver, WebElement element){

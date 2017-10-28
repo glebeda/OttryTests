@@ -20,7 +20,7 @@ public class TicketStartPage extends BaseServicePage<TicketStartPage> implements
         try {
             getGoBtn();
         } catch (TimeoutException e) {
-            throw new IllegalStateException("Go button is not present. Considering that this is not ticekt page", e);
+            throw new IllegalStateException("Go button is not present. Considering that this is not ticket page", e);
         }
     }
 
